@@ -125,5 +125,8 @@ print("Exportando...")
 # el segundo es el diccionario a exportar.
 print_json(outfile, dictRelaciones)
 print_json(outfileAutores, dictAutores)
+# La función print_dictionary almacenar la información de un diccinario en un archivo, línea por línea, cada línea
+# siendo un json. El primer argumento de la función es la ruta completa del archivo y el segundo es el diccionario
+# a exportar.
 # print_dictionary(outfile, dictRelaciones)
 # print_dictionary(outfileAutores, dictAutores)
