@@ -61,7 +61,7 @@ for objeto in objetos:
     for autor in objeto["_source"]["authors"]:
         autoresRaw.append(autor)
 i = 0
-for autor in autoresRaw:
+'''for autor in autoresRaw:
     try:
         if autor['id'] not in dictAutores:
             dictAutores[autor['id']] = {"name": autor['name'], "newId": "%09d" % i}
@@ -82,8 +82,39 @@ for autor in autoresRaw:
                         dictAutores[autor['org']] = {"name": autor['org'], "newId": "%09d" % i}
                         i += 1
                 except KeyError:
+                    pass'''
+
+i = 0
+for autor in autoresRaw:
+    keys = []
+    for llave in autor:
+        keys.append(llave)
+        keys.append(autor[llave])
+    keysDict = {keys[j]: keys[j + 1] for j in range(0, len(keys), 2)}
+    keysDict['newId'] = "%09d" % i
+    try:
+        if autor['id'] not in dictAutores:
+            dictAutores[autor['id']] = keysDict
+            i += 1
+    except KeyError:
+        try:
+            if autor['id'] not in dictAutores:
+                dictAutores[autor['id']] = keysDict
+                i += 1
+        except KeyError:
+            try:
+                if autor['name'] not in dictAutores:
+                    dictAutores[autor['name']] = keysDict
+                    i += 1
+            except KeyError:
+                try:
+                    if autor['org'] not in dictAutores:
+                        dictAutores[autor['org']] = keysDict
+                        i += 1
+                except KeyError:
                     pass
-dictRelaciones = dict()
+
+'''dictRelaciones = dict()
 for objeto in objetos:
     autoresLocales = []
     llave = ''
@@ -115,15 +146,15 @@ for objeto in objetos:
                     else:
                         dictRelaciones[llaveRelacion2]['weight'] += 1
                 else:
-                    dictRelaciones[llaveRelacion1]['weight'] += 1
+                    dictRelaciones[llaveRelacion1]['weight'] += 1'''
 
-print("Cálculo finalizado. Se encontraron %d autores y %d relaciones." % (len(dictAutores), len(dictRelaciones)))
+#print("Cálculo finalizado. Se encontraron %d autores y %d relaciones." % (len(dictAutores), len(dictRelaciones)))
 print("Exportando...")
 
 # La información obtenida se almacenó en dos diccionarios, dictAutores y dictRelaciones. Se usa la función print_json
 # para almacenar dicha información en un archivo. El primer argumento de la función es la ruta completa del archivo y
 # el segundo es el diccionario a exportar.
-print_json(outfile, dictRelaciones)
+#print_json(outfile, dictRelaciones)
 print_json(outfileAutores, dictAutores)
 # La función print_dictionary almacenar la información de un diccinario en un archivo, línea por línea, cada línea
 # siendo un json. El primer argumento de la función es la ruta completa del archivo y el segundo es el diccionario
