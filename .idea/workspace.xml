@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7141df0-d4e5-4588-b3b8-c852be998482" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/authors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/authors.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authors_relations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authors.py" beforeDir="false" afterPath="$PROJECT_DIR$/authors.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +19,13 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jair\PycharmProjects\authors" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -90,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584125707739</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Authors full attributes are printed - Edited to work with single quotes">
+      <created>1589997677033</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589997677033</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +121,7 @@
     <MESSAGE value="Agregado algún comentario" />
     <MESSAGE value="Modified meta info" />
     <MESSAGE value="Authors full attributes are printed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Authors full attributes are printed" />
+    <MESSAGE value="Authors full attributes are printed - Edited to work with single quotes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authors full attributes are printed - Edited to work with single quotes" />
   </component>
 </project>
