@@ -16,6 +16,7 @@
  ***************************************************************************/
 """
 
+import ast
 import json
 import os
 
@@ -46,15 +47,16 @@ def print_dictionary(filename, dictionary):
 
 
 # Ruta del archivo a abrir
-file1 = "%s/firstresults.txt" % os.path.expanduser('~')
+file1 = "%s/secondresults.txt" % os.path.expanduser('~')
 # Ruta de uno de los archivos para exportar la información
 outfile = "%s/output.json" % os.path.expanduser('~')
 # Ruta de uno de los archivos para exportar la información
 outfileAutores = "%s/outputautores.json" % os.path.expanduser('~')
-archivo = open(file1, "r")
+archivo = open(file1, "r", encoding='utf-8')
 objetos = []
 for linea in archivo:
-    objetos.append(json.loads(linea))
+    #objetos.append(json.loads(linea)) #Comillas dobles
+    objetos.append(ast.literal_eval(linea)) #Comillas simples
 autoresRaw = []
 dictAutores = dict()
 for objeto in objetos:
@@ -159,5 +161,5 @@ print_json(outfileAutores, dictAutores)
 # La función print_dictionary almacenar la información de un diccinario en un archivo, línea por línea, cada línea
 # siendo un json. El primer argumento de la función es la ruta completa del archivo y el segundo es el diccionario
 # a exportar.
-# print_dictionary(outfile, dictRelaciones)
-# print_dictionary(outfileAutores, dictAutores)
+#print_dictionary(outfile, dictRelaciones)
+#print_dictionary(outfileAutores, dictAutores)
