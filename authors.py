@@ -23,8 +23,8 @@ import os
 
 def print_json(filename, dictionary):
     try:
-        with open(filename, 'w') as file:
-            json.dump(dictionary, file)
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(dictionary, file, ensure_ascii=False)
         print("Archivo %s almacenado satisfactoriamente." % filename)
     except FileNotFoundError:
         print("Error con la ruta seleccionada.")
@@ -33,10 +33,10 @@ def print_json(filename, dictionary):
 def print_dictionary(filename, dictionary):
     errores = 0
     try:
-        with open(filename, 'w', newline='\n') as file:
+        with open(filename, 'w', encoding='utf-8', newline='\n') as file:
             for autor in dictionary:
                 try:
-                    file.write(json.dumps(dictionary[autor]) + "\n")
+                    file.write(json.dumps(dictionary[autor], ensure_ascii=False) + "\n")
                 except UnicodeEncodeError:
                     print(json.dumps(dictionary[autor]))
                     errores += 1

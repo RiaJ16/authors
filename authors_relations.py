@@ -2,9 +2,10 @@
 """
 /***************************************************************************
  AUTHORS
-        copyright        : (C) 2020 by Jair Nájera / HTech
+        copyright        : (C) 2020 by Jair Nájera / H-Tech
         email            : jair.najera@htech.mx
  ***************************************************************************/
+
 /***************************************************************************
  *																		   *
  *	 This program is free software; you can redistribute it and/or modify  *
@@ -22,8 +23,8 @@ import os
 
 def print_json(filename, dictionary):
     try:
-        with open(filename, 'w') as file:
-            json.dump(dictionary, file)
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(dictionary, file, ensure_ascii=False)
         print("Archivo %s almacenado satisfactoriamente." % filename)
     except FileNotFoundError:
         print("Error con la ruta seleccionada.")
@@ -32,10 +33,10 @@ def print_json(filename, dictionary):
 def print_dictionary(filename, dictionary):
     errores = 0
     try:
-        with open(filename, 'w', newline='\n') as file:
+        with open(filename, 'w', encoding='utf-8', newline='\n') as file:
             for autor in dictionary:
                 try:
-                    file.write(json.dumps(dictionary[autor]) + "\n")
+                    file.write(json.dumps(dictionary[autor], ensure_ascii=False) + "\n")
                 except UnicodeEncodeError:
                     print(json.dumps(dictionary[autor]))
                     errores += 1
@@ -126,5 +127,5 @@ print("Exportando...")
 # el segundo es el diccionario a exportar.
 print_json(outfile, dictRelaciones)
 #print_json(outfileAutores, dictAutores)
-# print_dictionary(outfile, dictRelaciones)
+#print_dictionary(outfile, dictRelaciones)
 # print_dictionary(outfileAutores, dictAutores)
